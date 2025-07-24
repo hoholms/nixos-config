@@ -6,7 +6,7 @@
 
   home.packages = with pkgs; [
     # --- Editors & IDEs ---
-    jetbrains.idea-ultimate
+    # jetbrains.idea-ultimate
     nixd
     nil
     nixfmt-classic
@@ -66,6 +66,7 @@
     gparted
 
     # --- File Manager (Dolphin) & Dependencies ---
+    nautilus
     kdePackages.dolphin
     kdePackages.kdegraphics-thumbnailers
     libsForQt5.ffmpegthumbs

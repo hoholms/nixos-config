@@ -2,15 +2,15 @@
   description = "bysinka_95's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -28,12 +28,13 @@
       hosts = [{
         hostname = "bysinka";
         stateVersion = "25.05";
+        channel = "nixos-unstable";
       }];
 
-      makeSystem = { hostname, stateVersion }:
+      makeSystem = { hostname, stateVersion, channel }:
         nixpkgs.lib.nixosSystem {
           system = system;
-          specialArgs = { inherit inputs stateVersion hostname user; };
+          specialArgs = { inherit inputs stateVersion hostname user channel; };
 
           modules = [ ./hosts/${hostname}/configuration.nix ];
         };
@@ -42,7 +43,7 @@
       nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
         configs // {
           "${host.hostname}" =
-            makeSystem { inherit (host) hostname stateVersion; };
+            makeSystem { inherit (host) hostname stateVersion channel; };
         }) { } hosts;
 
       homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {

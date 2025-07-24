@@ -7,7 +7,7 @@
 
     "$mainMod" = "SUPER";
     "$terminal" = "kitty";
-    "$fileManager" = "dolphin";
+    "$fileManager" = "nautilus";
     "$menu" = ''
       rofi -show combi -modes combi -combi-modes "window,drun" -show-icons
     '';
@@ -129,8 +129,7 @@
     };
 
     exec-once = [
-      "waypaper --random --folder ~/Wallpapers/Fractal Maze"
-      "blueman-applet"
+      "waypaper --random --folder ~/Wallpapers/FractalMaze"
       "waybar"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
@@ -159,10 +158,14 @@
     misc = {
       force_default_wallpaper = 0;
       disable_hyprland_logo = true;
+      disable_splash_rendering = true;
+      disable_hyprland_qtutils_check = true;
     };
 
     input = {
-      kb_layout = "us";
+      kb_layout = "us,ru";
+      # kb_variant = "intl,,";
+      kb_options = "grp:win_space_toggle";
 
       follow_mouse = 1;
 

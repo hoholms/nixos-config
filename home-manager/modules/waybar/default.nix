@@ -17,12 +17,10 @@
         modules-right = [
           # "mpd"
           "gamemode"
-          "idle_inhibitor"
           "pulseaudio"
           "network"
           "cpu"
           "memory"
-          # "temperature"
           "keyboard-state"
           "hyprland/language"
           "clock"
@@ -149,7 +147,7 @@
 
         pulseaudio = {
           # "scroll-step" = 1; # %; can be a float
-          format = "{volume}% {icon}       {format_source}";
+          format = "{volume}% {icon}    {format_source}";
           "format-bluetooth" = "{volume}% {icon} {format_source}";
           "format-bluetooth-muted" = " {icon} {format_source}";
           "format-muted" = " {format_source}";
