@@ -11,8 +11,6 @@
     ./gtk.nix
     ./kitty.nix
     ./networking.nix
-    # ./qt.nix
-    # ./stylix.nix
     ./zathura.nix
     ./zed.nix
     ./zen.nix
