@@ -38,6 +38,7 @@
     winetricks
     wineWowPackages.waylandFull
     bottles
+    vlc
 
     # --- Hyprland Ecosystem & Theming ---
     # Bar & Launcher
@@ -46,7 +47,6 @@
     rofi-wayland
     rofi-power-menu
 
-    # libsForQt5.xwaylandvideobridge
     libnotify
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
@@ -61,10 +61,6 @@
     waypaper
     # hyprlock
     hyprsome
-
-    # Cursors & Icons
-    # hyprcursor
-    # rose-pine-hyprcursor
 
     # System info & Helpers
     rocmPackages.rocm-smi

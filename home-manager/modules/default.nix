@@ -10,6 +10,7 @@
     ./git.nix
     ./gtk.nix
     ./kitty.nix
+    ./mime.nix
     ./networking.nix
     ./zathura.nix
     ./zed.nix
