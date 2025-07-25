@@ -5,5 +5,7 @@
     xwayland.enable = true;
   };
 
+  services.gvfs.enable = true;
+
   # security.pam.services.hyprlock = { };
 }

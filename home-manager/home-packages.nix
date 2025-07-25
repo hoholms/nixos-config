@@ -17,9 +17,11 @@
     microfetch
     wget
     unzip
-    p7zip
+    _7zz
+    unrar
     playerctl
     killall
+    qbittorrent
     lf # terminal file manager
 
     # --- Browsers & Communication ---
@@ -33,6 +35,9 @@
     mangohud
     protonup
     protontricks
+    winetricks
+    wineWowPackages.waylandFull
+    bottles
 
     # --- Hyprland Ecosystem & Theming ---
     # Bar & Launcher
