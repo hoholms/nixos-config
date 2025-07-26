@@ -10,6 +10,7 @@
     nixd
     nil
     nixfmt-classic
+    yandex-music
 
     # --- Terminals & Utilities ---
     btop

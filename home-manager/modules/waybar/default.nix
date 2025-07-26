@@ -15,7 +15,6 @@
         modules-left = [ "hyprland/workspaces" "custom/waybar-mpris" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
-          # "mpd"
           "gamemode"
           "pulseaudio"
           "network"
@@ -45,7 +44,7 @@
             urgent = "";
             active = "";
             default = "";
-            "magic" = "";
+            magic = "";
           };
         };
 
@@ -176,14 +175,8 @@
           "return-type" = "json";
           exec = "waybar-mpris --position --autofocus";
           "on-click" = "waybar-mpris --send toggle";
-          # This option will switch between players on right click.
-          "on-click-right" = "waybar-mpris --send player-next";
-          # The options below will switch the selected player on scroll
-          # "on-scroll-up" = "waybar-mpris --send player-next";
-          # "on-scroll-down" = "waybar-mpris --send player-prev";
-          # The options below will go to next/previous track on scroll
-          # "on-scroll-up" = "waybar-mpris --send next";
-          # "on-scroll-down" = "waybar-mpris --send prev";
+          max-length = 30;
+          ellipsis = true;
           escape = true;
         };
 
