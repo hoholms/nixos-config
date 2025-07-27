@@ -18,6 +18,7 @@
       vlc = [ "vlc.desktop" ];
       zathura = [ "zathura.desktop" ];
       zen = [ "zen-twilight.desktop" ];
+      fileRoller = [ "org.gnome.FileRoller.desktop" ];
 
       associations = {
         "inode/directory" = nautilus;
@@ -51,6 +52,11 @@
         "application/json" = zen;
         "text/plain" = zen;
         "text/html" = zen;
+
+        "application/zip" = fileRoller;
+        "application/rar" = fileRoller;
+        "application/7z" = fileRoller;
+        "application/tar" = fileRoller;
       };
     in {
       enable = true;

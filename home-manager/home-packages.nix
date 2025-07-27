@@ -11,6 +11,7 @@
     nil
     nixfmt-classic
     yandex-music
+    telegram-desktop
 
     # --- Terminals & Utilities ---
     btop
@@ -20,6 +21,7 @@
     unzip
     _7zz
     unrar
+    file-roller
     playerctl
     killall
     qbittorrent
@@ -40,6 +42,7 @@
     wineWowPackages.waylandFull
     bottles
     vlc
+    loupe
 
     # --- Hyprland Ecosystem & Theming ---
     # Bar & Launcher
@@ -58,10 +61,8 @@
     # Clipboard & Wallpaper
     cliphist
     wl-clipboard
-    hyprpaper
-    waypaper
-    # hyprlock
-    hyprsome
+    # waypaper
+    hyprshot
 
     # System info & Helpers
     rocmPackages.rocm-smi

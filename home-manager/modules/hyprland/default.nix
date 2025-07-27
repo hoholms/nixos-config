@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  imports = [ ./hyprland.nix ];
+  imports = [ ./hypridle.nix ./hyprland.nix ./hyprlock.nix ./hyprpaper.nix ];
 
   xdg.configFile."uwsm/env".source =
     "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";

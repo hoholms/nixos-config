@@ -36,10 +36,21 @@
             "https://addons.mozilla.org/firefox/downloads/latest/github-file-icons/latest.xpi";
           installation_mode = "force_installed";
         };
+        "uBlock0@raymondhill.net" = {
+          install_url =
+            "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "sponsorBlocker@ajay.app" = {
+          install_url =
+            "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
       Preferences = builtins.mapAttrs (_: locked) {
         "browser.tabs.warnOnClose" = false;
         "zen.widget.linux.transparency" = true;
+        "browser.ctrlTab.sortByRecentlyUsed" = true;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = true;
       };
     };

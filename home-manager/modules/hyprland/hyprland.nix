@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland.settings = {
     monitor = [
       "DP-2, preferred, auto, 1, vrr, 2"
-      "DP-4, preferred, auto-left, 1, transform, 1, vrr, 1"
+      "DP-4, preferred, auto-left, 1, transform, 1, vrr, 0"
     ];
 
     "$mainMod" = "SUPER";
@@ -14,6 +14,7 @@
 
     bind = [
       "$mainMod, Q, exec, $terminal"
+      "$mainMod, Z, exec, zen"
       "$mainMod, F, fullscreen"
       "$mainMod, C, killactive,"
       "$mainMod, M, exit,py"
@@ -53,6 +54,14 @@
       "$mainMod SHIFT, 8, movetoworkspace, 8"
       "$mainMod SHIFT, 9, movetoworkspace, 9"
       "$mainMod SHIFT, 0, movetoworkspace, 10"
+
+      # Hyprshot
+      "$mainMod CTRL, 3, exec, hyprshot -m output"
+      "$mainMod CTRL, 4, exec, hyprshot -m region"
+      "$mainMod CTRL, 5, exec, hyprshot -m window"
+
+      # Hyprlock
+      "$mainMod CTRL, Q, exec, hyprlock"
 
       # Example special workspace (scratchpad)
       "$mainMod, S, togglespecialworkspace, magic"
@@ -129,7 +138,7 @@
     };
 
     exec-once = [
-      "waypaper --random --folder ~/Wallpapers/FractalMaze"
+      # "waypaper --random --folder ~/Wallpapers/FractalMaze"
       "waybar"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"

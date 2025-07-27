@@ -30,7 +30,6 @@
 
     # Aliases
     shellAliases = {
-      nixconfig = "sudoedit /etc/nixos/configuration.nix";
       nixupdate = "sudo nixos-rebuild switch --flake ~/nixos-config --sudo";
       nixclean = "sudo nix-collect-garbage && sudo nix-collect-garbage -d";
       homeupdate = "home-manager switch --flake ~/nixos-config";
