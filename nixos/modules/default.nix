@@ -4,9 +4,7 @@
     ./bluetooth.nix
     ./boot.nix
     ./env.nix
-    ./gaming.nix
     ./greeter.nix
-    ./hardware.nix
     ./home-manager.nix
     ./hyprland.nix
     ./localisation.nix

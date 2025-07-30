@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, hostname, ... }:
 
 {
   programs.zsh = {
@@ -30,9 +30,10 @@
 
     # Aliases
     shellAliases = {
-      nixupdate = "sudo nixos-rebuild switch --flake ~/nixos-config --sudo";
+      nixupdate =
+        "sudo nixos-rebuild switch --flake ~/nixos-config#${hostname}";
       nixclean = "sudo nix-collect-garbage && sudo nix-collect-garbage -d";
-      homeupdate = "home-manager switch --flake ~/nixos-config";
+      homeupdate = "home-manager switch --flake ~/nixos-config#${hostname}";
       zedots = "zeditor ~/nixos-config";
     };
 

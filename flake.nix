@@ -17,35 +17,41 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      system = "x86_64-linux";
-      homeStateVersion = "25.05";
       user = "bysinka";
       hosts = [{
+        system = "x86_64-linux";
         hostname = "bysinka";
         stateVersion = "25.05";
+        homeStateVersion = "25.05";
         channel = "nixos-unstable";
       }];
 
-      makeSystem = { hostname, stateVersion, channel }:
+      makeSystem = { hostname, system, stateVersion, channel, ... }:
         nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = { inherit inputs stateVersion hostname user channel; };
-
+          inherit system;
+          specialArgs = {
+            inherit inputs stateVersion hostname system user channel;
+          };
           modules = [ ./hosts/${hostname}/configuration.nix ];
         };
 
-    in {
-      nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
-        configs // {
-          "${host.hostname}" =
-            makeSystem { inherit (host) hostname stateVersion channel; };
-        }) { } hosts;
-
-      homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
+      makeHomeConfiguration = { hostname, system, homeStateVersion, ... }: {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = { inherit inputs system homeStateVersion user; };
-
+        extraSpecialArgs = {
+          inherit inputs homeStateVersion user hostname system;
+        };
         modules = [ ./home-manager/home.nix ];
       };
+
+    in {
+      nixosConfigurations = nixpkgs.lib.foldl'
+        (configs: host: configs // { "${host.hostname}" = makeSystem host; })
+        { } hosts;
+
+      homeConfigurations = nixpkgs.lib.foldl' (configs: host:
+        configs // {
+          "${user}" = home-manager.lib.homeManagerConfiguration
+            (makeHomeConfiguration host);
+        }) { } hosts;
     };
 }

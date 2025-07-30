@@ -1,79 +1,92 @@
 { pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.rocmSupport = true;
+  # Global Nixpkgs Configurations
+  nixpkgs.config = {
+    allowUnfree = true;
+    rocmSupport = true;
+    allowUnsupportedSystem = true;
+  };
 
   home.packages = with pkgs; [
-    # --- Editors & IDEs ---
-    # jetbrains.idea-ultimate
-    nixd
-    nil
-    nixfmt-classic
-    yandex-music
-    telegram-desktop
+    # -------------------------------------------------------------------
+    # System Core & Utilities
+    # These are fundamental tools for system interaction and basic tasks.
+    # -------------------------------------------------------------------
+    btop # System monitor
+    tree # Directory listing utility
+    microfetch # System information fetcher
+    wget # Network downloader
+    unzip # Archive extraction
+    _7zz # 7-Zip archiver
+    unrar # RAR archiver
+    file-roller # Archive manager (GUI)
+    playerctl # Media player controller
+    killall # Process killer
+    gparted # Disk partition editor (GUI)
+    rocmPackages.rocm-smi # AMD ROCm System Management Interface
 
-    # --- Terminals & Utilities ---
-    btop
-    tree
-    microfetch
-    wget
-    unzip
-    _7zz
-    unrar
-    file-roller
-    playerctl
-    killall
-    qbittorrent
-    lf # terminal file manager
+    # -------------------------------------------------------------------
+    # File Management
+    # Tools for navigating, viewing, and managing files.
+    # -------------------------------------------------------------------
+    lf # Terminal file manager
+    nautilus # GNOME file manager (GUI)
+    kdePackages.dolphin # KDE file manager (GUI)
 
-    # --- Browsers & Communication ---
-    librewolf
-    firefoxpwa
-    vesktop # Discord client
+    # -------------------------------------------------------------------
+    # Development & Nix Ecosystem
+    # Tools related to coding, development environments, and Nix itself.
+    # -------------------------------------------------------------------
+    # jetbrains.idea-ultimate # IDE
+    nixd # Nix language server
+    nil # Nix linter
+    nixfmt-classic # Nix code formatter
 
-    # --- Gaming ---
-    hydralauncher
-    nexusmods-app-unfree
-    mangohud
-    protonup
-    protontricks
-    winetricks
-    wineWowPackages.waylandFull
-    bottles
-    vlc
-    loupe
+    # -------------------------------------------------------------------
+    # Web Browsers & Communication
+    # Applications for internet Browse and communication.
+    # -------------------------------------------------------------------
+    librewolf # Privacy-focused browser
+    firefoxpwa # Firefox PWA helper
+    telegram-desktop # Messaging client
+    vesktop # Discord client (Vesktop fork)
 
-    # --- Hyprland Ecosystem & Theming ---
-    # Bar & Launcher
-    # waybar
-    waybar-mpris
-    rofi-wayland
-    rofi-power-menu
+    # -------------------------------------------------------------------
+    # Media & Entertainment
+    # Applications for consuming media, gaming, and related utilities.
+    # -------------------------------------------------------------------
+    vlc # Media player
+    loupe # Image viewer
+    qbittorrent # Torrent client
+    mangohud # Gaming overlay
+    protonup # ProtonUp-Qt for Wine/Proton management
+    protontricks # Winetricks helper for Proton
+    hydralauncher # Game launcher
+    nexusmods-app-unfree # Nexus Mods client
+    yandex-music # Music streaming client
 
-    libnotify
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
+    # -------------------------------------------------------------------
+    # Hyprland Ecosystem & Theming
+    # Tools specific to the Hyprland Wayland compositor and related theming.
+    # -------------------------------------------------------------------
+    # Bars & Launchers
+    waybar-mpris # Waybar with MPRIS support
+    rofi-wayland # Rofi for Wayland
+    rofi-power-menu # Rofi-based power menu
 
-    # Notifications & Applets
-    pavucontrol
+    # Wayland Portals & Notifications
+    libnotify # Notification library
+    xdg-desktop-portal-gtk # XDG Desktop Portal for GTK applications
+    xdg-desktop-portal-hyprland # XDG Desktop Portal for Hyprland
 
-    # Clipboard & Wallpaper
-    cliphist
-    wl-clipboard
-    # waypaper
-    hyprshot
+    # Audio & Clipboard
+    pavucontrol # PulseAudio Volume Control
+    cliphist # Wayland clipboard history
+    wl-clipboard # Wayland clipboard utilities
 
-    # System info & Helpers
-    rocmPackages.rocm-smi
-    gparted
-
-    # --- File Manager (Dolphin) & Dependencies ---
-    nautilus
-    kdePackages.dolphin
-    kdePackages.kdegraphics-thumbnailers
-    libsForQt5.ffmpegthumbs
-    kdePackages.qtsvg
-    libsForQt5.kio-extras
+    # Screenshots & Wallpaper
+    hyprshot # Hyprland screenshot tool
+    waypaper
   ];
 }
