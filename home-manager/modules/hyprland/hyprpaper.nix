@@ -1,6 +1,6 @@
 {
   services.hyprpaper = {
-    enable = true;
+    enable = false;
 
     settings = let
       folder = (builtins.dirOf __curPos.file) + "/wallpapers";

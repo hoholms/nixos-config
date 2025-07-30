@@ -1,5 +1,9 @@
 {
-  wayland.windowManager.hyprland.settings = {
+  services.swww.enable = true;
+  wayland.windowManager.hyprland.settings = let
+    folder = (builtins.dirOf __curPos.file) + "/wallpapers";
+    image = "default.jpg";
+  in {
     monitor = [
       "DP-2, preferred, auto, 1, vrr, 2"
       "DP-4, preferred, auto-left, 1, transform, 1, vrr, 0"
@@ -138,7 +142,7 @@
     };
 
     exec-once = [
-      # "waypaper --random --folder ~/Wallpapers/FractalMaze"
+      "waypaper --random --backend swww --fill fill --folder ${folder}"
       "waybar"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
