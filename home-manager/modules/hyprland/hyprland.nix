@@ -148,8 +148,11 @@
       "wl-paste --type image --watch cliphist store"
     ];
 
-    windowrule = [
-      # "float,class:^(kitty)$,title:^(kitty)$"
+    windowrulev2 = [
+      "float,title:^(Picture-in-Picture)$"
+      "noinitialfocus,title:^(Picture-in-Picture)$"
+      "size 675 375,title:^(Picture-in-Picture)$"
+      "move onscreen 100% 100%,title:^(Picture-in-Picture)$"
       "suppressevent maximize, class:.*"
       "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       "immediate, class:^(cs2)$"

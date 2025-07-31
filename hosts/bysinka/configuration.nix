@@ -20,7 +20,13 @@
     enable32Bit = true;
   };
 
+  hardware.graphics.extraPackages = with pkgs; [ amdvlk ];
+
+  hardware.amdgpu.overdrive.enable = true;
+
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
+
+  boot.kernelParams = [ "video=DP-2:2560x1440@165" "video=DP-4:1920x1080@144" ];
 }
