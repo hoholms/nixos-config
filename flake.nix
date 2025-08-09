@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, chaotic, home-manager, ... }@inputs:
     let
       user = "bysinka";
       hosts = [{
@@ -32,7 +33,10 @@
           specialArgs = {
             inherit inputs stateVersion hostname system user channel;
           };
-          modules = [ ./hosts/${hostname}/configuration.nix ];
+          modules = [
+            ./hosts/${hostname}/configuration.nix
+            chaotic.nixosModules.default
+          ];
         };
 
       makeHomeConfiguration = { hostname, system, homeStateVersion, ... }: {

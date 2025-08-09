@@ -15,7 +15,7 @@
     # -------------------------------------------------------------------
     btop # System monitor
     tree # Directory listing utility
-    microfetch # System information fetcher
+    fastfetch # System information fetcher
     wget # Network downloader
     unzip # Archive extraction
     _7zz # 7-Zip archiver
@@ -64,7 +64,7 @@
     protontricks # Winetricks helper for Proton
     hydralauncher # Game launcher
     nexusmods-app-unfree # Nexus Mods client
-    yandex-music # Music streaming client
+    # yandex-music # Music streaming client
 
     # -------------------------------------------------------------------
     # Hyprland Ecosystem & Theming

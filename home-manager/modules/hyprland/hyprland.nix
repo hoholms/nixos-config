@@ -150,6 +150,7 @@
 
     windowrulev2 = [
       "float,title:^(Picture-in-Picture)$"
+      "pin,title:^(Picture-in-Picture)$"
       "noinitialfocus,title:^(Picture-in-Picture)$"
       "size 675 375,title:^(Picture-in-Picture)$"
       "move onscreen 100% 100%,title:^(Picture-in-Picture)$"

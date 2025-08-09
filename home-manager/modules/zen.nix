@@ -52,6 +52,8 @@
         "zen.widget.linux.transparency" = true;
         "browser.ctrlTab.sortByRecentlyUsed" = true;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = true;
+        "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled" =
+          true;
       };
     };
   };
