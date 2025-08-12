@@ -23,9 +23,6 @@
 
   hardware.amdgpu.overdrive.enable = true;
 
-  # chaotic.mesa-git.enable = true;
-  # chaotic.mesa-git.extraPackages = with pkgs; [ amdvlk ];
-
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
