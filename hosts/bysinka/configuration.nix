@@ -18,14 +18,13 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [ amdvlk ];
   };
-
-  hardware.graphics.extraPackages = with pkgs; [ amdvlk ];
 
   hardware.amdgpu.overdrive.enable = true;
 
-  chaotic.mesa-git.enable = true;
-  chaotic.mesa-git.extraPackages = with pkgs; [ amdvlk ];
+  # chaotic.mesa-git.enable = true;
+  # chaotic.mesa-git.extraPackages = with pkgs; [ amdvlk ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 

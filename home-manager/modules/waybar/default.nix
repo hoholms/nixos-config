@@ -168,7 +168,7 @@
           "format-en" = "🇺🇸";
           "format-ru" = "🇷🇺";
           "min-length" = 3;
-          "tooltip" = false;
+          "tooltip" = true;
         };
 
         "custom/waybar-mpris" = {

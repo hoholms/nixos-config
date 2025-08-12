@@ -8,6 +8,9 @@
     lact # The GPU GUI control tool
   ];
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [ package-version-server ];
+
   # Move Steam config here as it is not needed/supported for each host
   programs.gamemode.enable = true;
   programs.steam = {
