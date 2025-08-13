@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     home-manager
     lact # The GPU GUI control tool
+    gamescope_git
   ];
 
   programs.nix-ld.enable = true;
