@@ -2,11 +2,12 @@
   services.swww.enable = true;
   wayland.windowManager.hyprland.settings = let
     folder = (builtins.dirOf __curPos.file) + "/wallpapers";
-    image = "default.jpg";
+    image = "wallpaper-1.jpg";
   in {
     monitor = [
-      "DP-2, preferred, auto, 1, vrr, 2"
+      "DP-2, preferred, auto, 1, vrr, 0"
       "DP-4, preferred, auto-left, 1, transform, 1, vrr, 0"
+      "HDMI-A-1, disable"
     ];
 
     "$mainMod" = "SUPER";
@@ -117,7 +118,7 @@
     };
 
     decoration = {
-      rounding = 10;
+      rounding = 0;
       rounding_power = 2;
 
       # Change transparency of focused and unfocused windows
@@ -142,7 +143,7 @@
     };
 
     exec-once = [
-      "waypaper --random --backend swww --fill fill --folder ${folder}"
+      "waypaper --backend swww --fill center --wallpaper ${folder}/${image}"
       "waybar"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"

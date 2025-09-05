@@ -25,7 +25,15 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" "i2c-dev" ];
 
-  boot.kernelParams = [ "video=DP-2:2560x1440@165" "video=DP-4:1920x1080@144" ];
+  services.udev.extraRules = ''
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
+
+  boot.kernelParams = [
+    "video=DP-2:3440x1440@240"
+    "video=DP-4:2560x1440@165"
+    "video=HDMI-A-1:d"
+  ];
 }

@@ -7,7 +7,9 @@
     home-manager
     lact # The GPU GUI control tool
     gamescope_git
-  ];
+    ];
+
+  programs.adb.enable = true;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ package-version-server ];

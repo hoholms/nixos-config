@@ -7,7 +7,8 @@
     defaultUserShell = pkgs.zsh;
     users.${user} = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "input" "gamemode" ];
+      extraGroups =
+        [ "wheel" "networkmanager" "input" "gamemode" "adbusers" "i2c" ];
     };
   };
 }
